@@ -26,7 +26,7 @@ I used code by [Max Wolf](https://minimaxir.com/2019/09/howto-gpt2/) to train my
 
 ### API
 
-The API is a simple Flask API that through PUT and GET request is the link between the user and the backend. Since Flask runs locally I use NGROK to make the API public. The downside to this is that a NGROK session is only eight hours and after that I need to restart it. I didn't bother writing a CORS (Cross Origin Resource Sharing) API and therefore I use the wonderfull CROS Anywhere API made by Rob Wu. I send the all the requests through CORS Anywhere and it handles all that. 
+The API is a simple Flask API that through PUT and GET request is the link between the user and the backend. Since Flask runs locally I use NGROK to make the API public. NGROK is a localhost tunneling service. The downside to this is that a NGROK session is only eight hours and after that I need to restart it. I didn't bother writing a CORS (Cross Origin Resource Sharing) API and therefore I use the wonderful CROS Anywhere API made by Rob Wu. I send the all the requests through CORS Anywhere and it handles all that. 
 
 
 ### Frontend/Website
