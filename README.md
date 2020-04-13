@@ -59,8 +59,5 @@ To communicate between my two simultainuasly running Python scripts they read an
 
 ## Author
 
-* **David Eckemark** - *Made everything* - [abbdaveck](https://github.com/abbdaveck)
+* **David Eckemark** - [abbdaveck](https://github.com/abbdaveck)
 
-## Acknowledgments
-
-* Thanks to Joakim Flink, Erik Hallberg and Erik Spector for helping me with a few issues I had.
