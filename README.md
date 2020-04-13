@@ -19,13 +19,14 @@ The user start by giving some info about how many characters there should be in 
 
 ### Backend
 
-The GPT2 model that I use is a 744-model trained with the 10 000 most popular stories from the subreddit r/nosleep. I used a PRAW (Python API Reddit Wrapped) to take the stories write them to a text file on my computer. The auothors using that subreddit have a tendency to link to their other stories in the end of the story which meant that sprinkled in with all of the stories there were a bunch of URLs and such. I tried to manually clean them up but since all of the stories combined is more combines to more than 2 million words and a little over 4700 pages that obviously was impossible. So most of the text is left unedited and therefore some of the outputs frp, the AI are a bit weird.
-
 The backend is basiclly basically a loop that continuously checks a file on my computer to check if it has been updated with new info. If that is the case it it send the data to the AI. The scripts then checks for things like dubble spaces in the text from the AI writes it to a file for the API to see and send to the user.
+
+### Training AI
+I used code by [Max Wolf](https://minimaxir.com/2019/09/howto-gpt2/) to train my model. The GPT2 model that I use is a 744-model trained with the 10 000 most popular stories from the subreddit r/nosleep. I used a PRAW (Python API Reddit Wrapped) to take the stories write them to a text file on my computer. The auothors using that subreddit have a tendency to link to their other stories in the end of the story which meant that sprinkled in with all of the stories there were a bunch of URLs and such. I tried to manually clean them up but since all of the stories combined is more combines to more than 2 million words and a little over 4700 pages that obviously was impossible. So most of the text is left unedited and therefore some of the outputs frp, the AI are a bit weird.
 
 ### API
 
-The API is a simple Flask API that through PUT and GET request is the link between the user and the backend. Since Flask runs locally I use NGROK to make the API public. The downside to this is that a NGROK session is only eight hours and after that I need to restart it. I didn't bother writing a CORS (Cross Origin Resource Sharing) API and therefore I use the wonderfull API, CROS Anywhere made by Rob Wu. I send the all the requests through CORS Anywhere and it handles all that. 
+The API is a simple Flask API that through PUT and GET request is the link between the user and the backend. Since Flask runs locally I use NGROK to make the API public. The downside to this is that a NGROK session is only eight hours and after that I need to restart it. I didn't bother writing a CORS (Cross Origin Resource Sharing) API and therefore I use the wonderfull CROS Anywhere API made by Rob Wu. I send the all the requests through CORS Anywhere and it handles all that. 
 
 
 ### Frontend/Website
@@ -39,6 +40,8 @@ The frontend is a simple website that takes the inputs from the user and sends t
 * [Flask](https://flask.palletsprojects.com/en/1.1.x/) - The API framework used
 * [NGROK](https://ngrok.com/docs) - The localhost tunneling serviced used
 * [CORS Anywhere](https://github.com/Rob--W/cors-anywhere#documentation) - The service used for handeling CORS
+* [GPT2 Model Trainer](https://colab.research.google.com/drive/1OG1HxBMdIMyWfc0qP2rz6tvQwtx9Gikn#scrollTo=t6MRCaq33f7s) - The code I used to train my model
+
 
 
 ## Author
