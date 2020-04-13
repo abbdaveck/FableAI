@@ -33,6 +33,8 @@ The API is a simple Flask API that through PUT and GET request is the link betwe
 
 The frontend is a simple website that takes the inputs from the user and sends them using my API to the backend. The website then waits 5 seconds then checks if the text has been updated, is not then it waits another 5 seconds and so on. If the AI is finished loading the website displays is to the user. 
 
+### Problems
+To communicate between my two simultainuasly running Python scripts they read and write to a local file. This isn't the most elegant solution but it works. When my website waites the 5 seconds between checking if the backends is finished loading it kinda freezes and you can't for example open the console. They way I built this website right now it isn't really scalable since the backends can only procces one request at a time and it takes 20-30 seconds for it to do that. 
 
 ## Built With
 
@@ -41,7 +43,6 @@ The frontend is a simple website that takes the inputs from the user and sends t
 * [NGROK](https://ngrok.com/docs) - The localhost tunneling serviced used
 * [CORS Anywhere](https://github.com/Rob--W/cors-anywhere#documentation) - The service used for handeling CORS
 * [GPT2 Model Trainer](https://colab.research.google.com/drive/1OG1HxBMdIMyWfc0qP2rz6tvQwtx9Gikn#scrollTo=t6MRCaq33f7s) - The code I used to train my model
-
 
 
 ## Author
