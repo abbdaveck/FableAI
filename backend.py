@@ -5,13 +5,13 @@ from datetime import datetime
 os.system("cls")        #clear terminal
 
 if os.environ['COMPUTERNAME'] == "HOME":
-    compath = r"C:\Users\david\OneDrive - ABB Industrigymnasium\Teknik\VT 20\Create your own story\communication.txt"
-    changepath = r"C:\Users\david\OneDrive - ABB Industrigymnasium\Teknik\VT 20\Create your own story\change.txt"
-    checkpoint = r"C:\Users\david\OneDrive - ABB Industrigymnasium\Teknik\VT 20\Create your own story\checkpoint"
+    compath = r"C:\Users\david\OneDrive - ABB Industrigymnasium\Teknik\VT 20\FableAI\communication.txt"
+    changepath = r"C:\Users\david\OneDrive - ABB Industrigymnasium\Teknik\VT 20\FableAI\change.txt"
+    checkpoint = r"C:\Users\david\OneDrive - ABB Industrigymnasium\Teknik\VT 20\FableAI\checkpoint"
 else:
-    compath = r"C:\Users\S8daveck\OneDrive\OneDrive - ABB Industrigymnasium\Teknik\VT 20\Create your own story\communication.txt"
-    changepath = r"C:\Users\S8daveck\OneDrive\OneDrive - ABB Industrigymnasium\Teknik\VT 20\Create your own story\change.txt"
-    checkpoint = r"C:\Users\S8daveck\OneDrive\OneDrive - ABB Industrigymnasium\Teknik\VT 20\Create your own story\checkpoint"
+    compath = r"C:\Users\S8daveck\OneDrive\OneDrive - ABB Industrigymnasium\Teknik\VT 20\FableAI\communication.txt"
+    changepath = r"C:\Users\S8daveck\OneDrive\OneDrive - ABB Industrigymnasium\Teknik\VT 20\FableAI\change.txt"
+    checkpoint = r"C:\Users\S8daveck\OneDrive\OneDrive - ABB Industrigymnasium\Teknik\VT 20\FableAI\checkpoint"
 
 
 sess = gpt2.start_tf_sess()     #start session
@@ -114,39 +114,36 @@ def getTime():
     return send
     
 while True:
-    # try:
-        # os.system("cls")
-    change(compath)
+    try:
+        change(compath)
 
-    openedfile = open(compath, "r", encoding="utf-8")
-    dic = json.loads(openedfile.read())
-    openedfile.close()
+        openedfile = open(compath, "r", encoding="utf-8")
+        dic = json.loads(openedfile.read())
+        openedfile.close()
 
-    prefix = dic['prefix']
-    story = cleanUpArr(cleanUpArr(dic['story']))
-    friends = prefix['sidech']['names']
+        prefix = dic['prefix']
+        story = cleanUpArr(cleanUpArr(dic['story']))
+        friends = prefix['sidech']['names']
 
-    if not story:
-        info = getInfo(prefix['name'], friends, int(prefix['sidech']['number']), prefix['prestory'])
-        info = cleanUpString(info)
-        re = createStory("§" + info)
-        re = output(re[1])      #tar vad som kommer tillbaka från createStory och tar bort sista meninen, sätter ihop dem och tar bort lite skräp
-        story.append(re)
-        story = cleanUpArr(cleanUpArr(story))
+        if not story:
+            info = getInfo(prefix['name'], friends, int(prefix['sidech']['number']), prefix['prestory'])
+            info = cleanUpString(info)
+            re = createStory("§" + info)
+            re = output(re[1])      #tar vad som kommer tillbaka från createStory och tar bort sista meninen, sätter ihop dem och tar bort lite skräp
+            story.append(re)
+            story = cleanUpArr(cleanUpArr(story))
 
-        writeto(compath, dic)
+            writeto(compath, dic)
 
-    else:   
-        late = latest(story)
-        late = cleanUpString(late)
-        re = createStory(late + "§")
-        re = output(re[1])
-        story.append(re)
-        story = cleanUpArr(cleanUpArr(story))
+        else:   
+            late = latest(story)
+            late = cleanUpString(late)
+            re = createStory(late + "§")
+            re = output(re[1])
+            story.append(re)
+            story = cleanUpArr(cleanUpArr(story))
 
-        writeto(compath, dic)
+            writeto(compath, dic)
 
-        # print(dic)
-
-    # except:
-    #     print("Error")
+    except:
+        print("Error")

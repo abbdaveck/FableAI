@@ -6,11 +6,11 @@ app = Flask(__name__)
 api = Api(app)
 
 if os.environ['COMPUTERNAME'] == "HOME":
-    testpath = r"C:\Users\david\OneDrive - ABB Industrigymnasium\Teknik\VT 20\Create your own story\communication.txt"
-    changepath = r"C:\Users\david\OneDrive - ABB Industrigymnasium\Teknik\VT 20\Create your own story\change.txt"
+    testpath = r"C:\Users\david\OneDrive - ABB Industrigymnasium\Teknik\VT 20\FableAI\communication.txt"
+    changepath = r"C:\Users\david\OneDrive - ABB Industrigymnasium\Teknik\VT 20\FableAI\change.txt"
 else:
-    testpath = r"C:\Users\S8daveck\OneDrive\OneDrive - ABB Industrigymnasium\Teknik\VT 20\Create your own story\communication.txt"
-    changepath = r"C:\Users\S8daveck\OneDrive\OneDrive - ABB Industrigymnasium\Teknik\VT 20\Create your own story\change.txt"
+    testpath = r"C:\Users\S8daveck\OneDrive\OneDrive - ABB Industrigymnasium\Teknik\VT 20\FableAI\communication.txt"
+    changepath = r"C:\Users\S8daveck\OneDrive\OneDrive - ABB Industrigymnasium\Teknik\VT 20\FableAI\change.txt"
 
 
 class myAPI(Resource):
